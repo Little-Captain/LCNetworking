@@ -1,11 +1,9 @@
 use_frameworks!
 
-target 'LCNetworking_Example' do
+target 'OS X Example' do
   pod 'LCNetworking', :path => '../'
+end
 
-  target 'LCNetworking_Tests' do
-    inherit! :search_paths
-
-    
-  end
+target 'iOS Example' do
+    pod 'LCNetworking', :path => '../'
 end

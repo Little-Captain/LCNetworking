@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LCNetworking'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of LCNetworking.'
+  s.version          = '1.0.0'
+  s.summary          = 'LCNetworking 是一个基于 AFNetworking 的网络请求框架'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+LCNetworking 是一个基于 AFNetworking 的网络请求框架, 解决了 AFNetworking 中存在的内存泄漏问题
                        DESC
 
   s.homepage         = 'https://github.com/Little-Captain/LCNetworking'
@@ -28,7 +28,8 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/Little-Captain/LCNetworking.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
+  s.osx.deployment_target = '10.9'
 
   s.source_files = 'LCNetworking/Classes/**/*'
   
@@ -38,5 +39,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'AFNetworking'
 end
