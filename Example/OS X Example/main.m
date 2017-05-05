@@ -25,6 +25,21 @@ int main(int argc, const char * argv[]) {
             }
         }];
         
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        
+        NSURL *URL = [NSURL URLWithString:@"http://httpbin.org/get"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+        
+        NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+            if (error) {
+                NSLog(@"Error: %@", error);
+            } else {
+                NSLog(@"%@ %@", response, [responseObject class]);
+            }
+        }];
+        [dataTask resume];
+        
         [[NSRunLoop currentRunLoop] run];
     }
     return 0;
