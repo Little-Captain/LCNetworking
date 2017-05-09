@@ -8,7 +8,7 @@
 ## Requirements
 
 * iOS 7.0+
-* OS X 10.0+
+* OS X 10.9+
 
 ## Installation
 
@@ -32,7 +32,7 @@ LCNetworking is available under the MIT license. See the LICENSE file for more i
 ## 环境要求
 
 * iOS 7.0+
-* OS X 10.0+
+* OS X 10.9+
 
 ## 安装
 
