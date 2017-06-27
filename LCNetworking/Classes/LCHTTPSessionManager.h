@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param completion 请求完成后的回调闭包
  isSuccess == YES : result 为 响应的具体数据
  isSuccess == NO  : result 为 错误信息对象(NSError)
+ @return 任务
  */
 - (nullable NSURLSessionDataTask *)request:(LCHttpMethod)method
                                     urlStr:(NSString *)URLString
@@ -62,6 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param completion 请求完成后的回调闭包
  isSuccess == YES : result 为 响应的具体数据
  isSuccess == NO  : result 为 错误信息对象(NSError)
+ @return 任务
  */
 - (nullable NSURLSessionDataTask *)request:(LCHttpMethod)method
                                     urlStr:(NSString *)URLString
@@ -80,6 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param completion 请求完成后的回调闭包
  isSuccess == YES : result 为 响应的具体数据
  isSuccess == NO  : result 为 错误信息对象(NSError)
+ @return 任务
  */
 - (nullable NSURLSessionDataTask *)upload:(NSString *)URLString
                                parameters:(nullable id)parameters
@@ -100,6 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param completion 请求完成后的回调闭包
  isSuccess == YES : result 为 响应的具体数据
  isSuccess == NO  : result 为 错误信息对象(NSError)
+ @return 任务
  */
 - (nullable NSURLSessionDataTask *)upload:(NSString *)URLString
                                parameters:(nullable id)parameters
@@ -109,6 +113,47 @@ NS_ASSUME_NONNULL_BEGIN
                                  progress:(nullable void (^)(float progress))progress
                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
+/**
+ 上传多文件文件方法 : 不监听进度
+ 
+ @param URLString URL 字符串
+ @param parameters 请求参数
+ @param name 接收上传数据的服务器字段(要咨询公司的服务器人员)
+ @param fileName 保存在服务器的文件名(需要和服务器人员约定, 本方法内部实现使用这个参数决定上传的 MimeType)
+ @param datas 要上传的二进制数据数组
+ @param completion 请求完成后的回调闭包
+ isSuccess == YES : result 为 响应的具体数据
+ isSuccess == NO  : result 为 错误信息对象(NSError)
+ @return 任务
+ */
+- (nullable NSURLSessionDataTask *)upload:(NSString *)URLString
+                               parameters:(nullable id)parameters
+                                     name:(NSString *)name
+                                 fileName:(nullable NSString *)fileName
+                                    datas:(NSArray *)datas
+                               completion:(nullable void (^)(id _Nonnull, BOOL))completion;
+
+/**
+ 上传多文件文件方法 : 监听进度
+
+ @param URLString URL 字符串
+ @param parameters 请求参数
+ @param name 接收上传数据的服务器字段(要咨询公司的服务器人员)
+ @param fileName 保存在服务器的文件名(需要和服务器人员约定, 本方法内部实现使用这个参数决定上传的 MimeType)
+ @param datas 要上传的二进制数据数组
+ @param progress 请求进度回调: progress 为进度值
+ @param completion 请求完成后的回调闭包
+ isSuccess == YES : result 为 响应的具体数据
+ isSuccess == NO  : result 为 错误信息对象(NSError)
+ @return 任务
+ */
+- (nullable NSURLSessionDataTask *)upload:(NSString *)URLString
+                               parameters:(nullable id)parameters
+                                     name:(NSString *)name
+                                 fileName:(nullable NSString *)fileName
+                                    datas:(NSArray *)datas
+                                 progress:(nullable void (^)(float))progress
+                               completion:(nullable void (^)(id _Nonnull, BOOL))completion;
 
 @end
 

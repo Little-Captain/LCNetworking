@@ -8,8 +8,7 @@
 
 #import "ViewController.h"
 
-
-@import LCNetworking
+#import <LCNetworking.h>
 
 @interface ViewController ()
 
@@ -19,13 +18,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    UIImage *image = [UIImage imageNamed:@"James Blunt1.jpg"];
+    
+    [[LCHTTPSessionManager sharedInstance] upload:@"http://172.31.101.178:8080/discuzApp/updateHead.do" parameters:@{@"userId": @"16"} name:@"upload" fileName:@"123.png" data:UIImagePNGRepresentation(image) progress:^(float progress) {
+        NSLog(@"%.2f", progress);
+    } completion:^(id  _Nonnull result, BOOL isSuccess) {
+        if (isSuccess) {
+            NSLog(@"成功");
+        } else {
+            NSLog(@"失败");
+        }
+    }];
 }
 
 
