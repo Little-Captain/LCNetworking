@@ -122,7 +122,7 @@ static LCHTTPSessionManager *_instance;
                       parameters:(id)parameters
                             name:(NSString *)name
                         fileName:(NSString *)fileName
-                           datas:(NSArray *)datas
+                           datas:(NSArray<NSData *> *)datas
                       completion:(void (^)(id _Nonnull, BOOL))completion {
     return [self upload:URLString parameters:parameters name:name fileName:fileName datas:datas progress:nil completion:completion];
 }
@@ -131,7 +131,7 @@ static LCHTTPSessionManager *_instance;
                       parameters:(id)parameters
                             name:(NSString *)name
                         fileName:(NSString *)fileName
-                           datas:(NSArray *)datas
+                           datas:(NSArray<NSData *> *)datas
                         progress:(void (^)(float))progress
                       completion:(void (^)(id _Nonnull, BOOL))completion {
     

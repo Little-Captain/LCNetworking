@@ -130,8 +130,8 @@ NS_ASSUME_NONNULL_BEGIN
                                parameters:(nullable id)parameters
                                      name:(NSString *)name
                                  fileName:(nullable NSString *)fileName
-                                    datas:(NSArray *)datas
-                               completion:(nullable void (^)(id _Nonnull, BOOL))completion;
+                                    datas:(NSArray<NSData *> *)datas
+                               completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
 /**
  上传多文件文件方法 : 监听进度
@@ -151,9 +151,9 @@ NS_ASSUME_NONNULL_BEGIN
                                parameters:(nullable id)parameters
                                      name:(NSString *)name
                                  fileName:(nullable NSString *)fileName
-                                    datas:(NSArray *)datas
-                                 progress:(nullable void (^)(float))progress
-                               completion:(nullable void (^)(id _Nonnull, BOOL))completion;
+                                    datas:(NSArray<NSData *> *)datas
+                                 progress:(nullable void (^)(float progress))progress
+                               completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
 @end
 
