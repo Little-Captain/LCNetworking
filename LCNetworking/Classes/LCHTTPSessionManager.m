@@ -99,6 +99,7 @@ static LCHTTPSessionManager *_instance;
     };
     
     return [self POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        if (!data) return;
         // 创建 formData
         /*
          1. data: 要上传的二进制数据
@@ -110,11 +111,7 @@ static LCHTTPSessionManager *_instance;
         [formData appendPartWithFileData:data
                                     name:name
                                 fileName:fileName
-                                mimeType:mimeTypeForPathExtension([fileName pathExtension])];
-        NSLog(@"%@", data);
-        NSLog(@"%@", name);
-        NSLog(@"%@", fileName);
-        NSLog(@"%@", mimeTypeForPathExtension([fileName pathExtension]));
+                                mimeType:mimeTypeForPathExtension([fileName pathExtension])];        
     } progress:progressBlock success:successBlock failure:failureBlock];
 }
 
@@ -149,6 +146,7 @@ static LCHTTPSessionManager *_instance;
     };
     
     return [self POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        if (!datas || (datas.count == 0)) return;
         // 创建 formData
         /*
          1. data: 要上传的二进制数据

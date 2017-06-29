@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LCNetworking'
-  s.version          = '1.3.1'
+  s.version          = '1.3.2'
   s.summary          = 'LCNetworking 是一个基于 AFNetworking 的网络请求框架'
 
 # This description is used to generate tags and improve search results.
