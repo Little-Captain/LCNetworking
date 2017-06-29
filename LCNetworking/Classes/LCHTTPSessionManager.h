@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
                                parameters:(nullable id)parameters
                                      name:(NSString *)name
                                  fileName:(nullable NSString *)fileName
-                                     data:(NSData *)data
+                                     data:(nullable NSData *)data
                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
 /**
@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
                                parameters:(nullable id)parameters
                                      name:(NSString *)name
                                  fileName:(nullable NSString *)fileName
-                                     data:(NSData *)data
+                                     data:(nullable NSData *)data
                                  progress:(nullable void (^)(float progress))progress
                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
                                parameters:(nullable id)parameters
                                      name:(NSString *)name
                                  fileName:(nullable NSString *)fileName
-                                    datas:(NSArray<NSData *> *)datas
+                                    datas:(nullable NSArray<NSData *> *)datas
                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 
 /**
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
                                parameters:(nullable id)parameters
                                      name:(NSString *)name
                                  fileName:(nullable NSString *)fileName
-                                    datas:(NSArray<NSData *> *)datas
+                                    datas:(nullable NSArray<NSData *> *)datas
                                  progress:(nullable void (^)(float progress))progress
                                completion:(nullable void (^)(id result, BOOL isSuccess))completion;
 

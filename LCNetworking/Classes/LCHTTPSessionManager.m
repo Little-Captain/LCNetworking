@@ -146,7 +146,7 @@ static LCHTTPSessionManager *_instance;
     };
     
     return [self POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        if (!datas || (datas.count == 0)) return;
+        if (!datas) return;
         // 创建 formData
         /*
          1. data: 要上传的二进制数据
